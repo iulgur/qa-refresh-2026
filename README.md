@@ -23,3 +23,27 @@ and modernizing QA automation skills.
 - IntelliJ IDEA (recommended)
 
 ## Running the Tests
+
+Clone the repository and run tests via Maven:
+
+\`\`\`bash
+mvn test
+\`\`\`
+
+Or run an individual test class from the command line:
+
+\`\`\`bash
+mvn test -Dtest=FirstPlaywrightTest
+\`\`\`
+
+Tests can also be run directly from IntelliJ IDEA by clicking the green
+run icon next to a test method or class.
+
+By default, tests run in headless mode. To run with a visible browser,
+launch options can be configured with `setHeadless(false)`.
+
+## Progress
+
+- **Week 0** — Environment setup (Java 21, Maven, Playwright, JUnit 5),
+  first passing Playwright test, CI-ready project structure.
+- 
