@@ -12,14 +12,16 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class FirstPlaywrightTest {
 
+    private static final boolean HEADED = Boolean.getBoolean("headed");
+
     @Test
     void testTheTitlePageOfPlaywright() {
 
         try (Playwright playwright = Playwright.create()){
             try (Browser browser = playwright.chromium().launch(
                     new BrowserType.LaunchOptions()
-                            .setHeadless(false)
-                            .setSlowMo(1000))){
+                            .setHeadless(!HEADED)
+                            .setSlowMo(HEADED ? 1000 : 0))){
                 try (Page page = browser.newPage()){
                     page.navigate("https://playwright.dev");
                     assertThat(page).hasTitle(Pattern.compile("Playwright"));
